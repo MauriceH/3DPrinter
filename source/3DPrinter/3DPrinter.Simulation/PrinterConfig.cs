@@ -1,4 +1,4 @@
-﻿namespace _3DPrinter.Simulation
+﻿namespace DeltaPrinter.Simulation
 {
     public class PrinterConfig
     {

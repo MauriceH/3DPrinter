@@ -1,12 +1,12 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using _3DPrinter.Simulation.DeltaPrinterView.Data;
-using _3DPrinter.Simulation.DeltaPrinterView.DirectMovement;
-using _3DPrinter.Simulation.DeltaPrinterView.PrinterParts;
-using _3DPrinter.Simulation.Helper;
+using DeltaPrinter.Simulation.DeltaPrinterView.Data;
+using DeltaPrinter.Simulation.DeltaPrinterView.DirectMovement;
+using DeltaPrinter.Simulation.DeltaPrinterView.PrinterParts;
+using DeltaPrinter.Simulation.Helper;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView
+namespace DeltaPrinter.Simulation.DeltaPrinterView
 {
     public partial class DeltaPrinterView : UserControl
     {
@@ -20,8 +20,8 @@ namespace _3DPrinter.Simulation.DeltaPrinterView
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ViewData PrinterData { get; private set; }
 
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public DrawingSettings DrawSettings { get; set; }
+        [Category("MyCategory")]
+        public AppearanceSettings Appearance { get; set; }
 
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PrinterConfig PrinterConfig
@@ -37,12 +37,14 @@ namespace _3DPrinter.Simulation.DeltaPrinterView
         public void SetHeadPosition(Point point)
         {
             var head = PrinterData?.PrintHead;
-            if (head != null) head.CurrentPosition = point;
+            if (head == null) return;
+            head.CurrentPosition = point.MoveOffset(PrinterData.Midpoint);
             Refresh();
         }
 
         public DeltaPrinterView()
         {
+            Appearance = new AppearanceSettings();
             InitializeComponent();
             printerConfig = new PrinterConfig();
             CreatePrinterData();
@@ -57,7 +59,7 @@ namespace _3DPrinter.Simulation.DeltaPrinterView
             }
             var g = e.Graphics;
             
-            PrinterData.DrawSettings = DrawSettings ?? new DrawingSettings();
+            PrinterData.DrawSettings = Appearance;
 
             g.SmoothingMode = PrinterData.DrawSettings.Smoothing;
             

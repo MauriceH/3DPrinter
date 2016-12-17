@@ -1,4 +1,4 @@
-﻿namespace _3DPrinter.Simulation.DeltaPrinterView
+﻿namespace DeltaPrinter.Simulation.DeltaPrinterView
 {
     partial class DeltaPrinterView
     {

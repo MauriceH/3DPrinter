@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using _3DPrinter.Simulation.DeltaPrinterView.Data;
-using _3DPrinter.Simulation.Helper;
+using DeltaPrinter.Simulation.DeltaPrinterView.Data;
+using DeltaPrinter.Simulation.Helper;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
+namespace DeltaPrinter.Simulation.DeltaPrinterView.PrinterParts
 {
     public class PrinterView : IRenderView
     {
@@ -29,14 +29,14 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
 
 
 
-        private void DrawGroundPlate(DrawingSettings ws, Graphics g, PrintBaseViewData baseData)
+        private void DrawGroundPlate(AppearanceSettings ws, Graphics g, PrintBaseViewData baseData)
         {
             var entries = baseData.GroundPlateCorners.Concat(new[] {baseData.GroundPlateCorners.First()}).ToArray();
-            g.DrawLines(ws.StrokePenBig, entries);
+            g.DrawLines(ws.StrokeBig.Pen, entries);
             g.FillPolygon(ws.GroundPlateBrush, entries);
         }
 
-        private void DrawHeatPlate(DrawingSettings ws, Graphics g, PrintBaseViewData baseData) 
+        private void DrawHeatPlate(AppearanceSettings ws, Graphics g, PrintBaseViewData baseData) 
         {
             g.FillEllipse(ws.HeatPlateBrush,baseData.HeatPlate);
             g.DrawEllipse(new Pen(((SolidBrush)ws.HeatPlateBrush).Color,4), baseData.HeatPlate);
@@ -50,7 +50,7 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
             {
                 var rect = x.CreateRectAround(4);
                 g.FillEllipse(connectorBrush, rect);
-                g.DrawEllipse(viewData.DrawSettings.StrokePenSmall, rect);
+                g.DrawEllipse(viewData.DrawSettings.StrokeSmall.Pen, rect);
             };
 
             var baseData = viewData.PrinterBase;
@@ -67,12 +67,13 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
         private void DrawConnections(ViewData data, Graphics g)
         {
             var ds = data.DrawSettings;
-            g.DrawLine(ds.ConnectorBigPen, data.PrinterBase.A.PointA, data.PrintHead.A.PointA);           
-            g.DrawLine(ds.ConnectorBigPen, data.PrinterBase.A.PointB, data.PrintHead.A.PointB);
-            g.DrawLine(ds.ConnectorBigPen, data.PrinterBase.B.PointA, data.PrintHead.B.PointA);           
-            g.DrawLine(ds.ConnectorBigPen, data.PrinterBase.B.PointB, data.PrintHead.B.PointB);
-            g.DrawLine(ds.ConnectorBigPen, data.PrinterBase.C.PointA, data.PrintHead.C.PointA);           
-            g.DrawLine(ds.ConnectorBigPen, data.PrinterBase.C.PointB, data.PrintHead.C.PointB);           
+            var dsConnectorBigPen = ds.ConnectorBigPen.Pen;
+            g.DrawLine(dsConnectorBigPen, data.PrinterBase.A.PointA, data.PrintHead.A.PointA);           
+            g.DrawLine(dsConnectorBigPen, data.PrinterBase.A.PointB, data.PrintHead.A.PointB);
+            g.DrawLine(dsConnectorBigPen, data.PrinterBase.B.PointA, data.PrintHead.B.PointA);           
+            g.DrawLine(dsConnectorBigPen, data.PrinterBase.B.PointB, data.PrintHead.B.PointB);
+            g.DrawLine(dsConnectorBigPen, data.PrinterBase.C.PointA, data.PrintHead.C.PointA);           
+            g.DrawLine(dsConnectorBigPen, data.PrinterBase.C.PointB, data.PrintHead.C.PointB);           
         }
 
     }

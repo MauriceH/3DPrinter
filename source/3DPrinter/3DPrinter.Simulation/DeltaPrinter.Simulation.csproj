@@ -7,8 +7,8 @@
     <ProjectGuid>{66BFCCD4-FB06-4BCE-B49F-B3A5E3F6FF6F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_3DPrinter.Simulation</RootNamespace>
-    <AssemblyName>3DPrinter.Simulation</AssemblyName>
+    <RootNamespace>DeltaPrinter.Simulation</RootNamespace>
+    <AssemblyName>DeltaPrinter.Simulation</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,13 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeltaPrinterView\AppeareancePen.cs" />
     <Compile Include="DeltaPrinterView\Data\DeltaHeadConnectorViewData.cs" />
     <Compile Include="Helper\DegMath.cs" />
     <Compile Include="Helper\HexaPolygon.cs" />
     <Compile Include="Helper\PointExtensions.cs" />
     <Compile Include="Helper\RectangleExtensions.cs" />
     <Compile Include="Helper\Triangle.cs" />
-    <Compile Include="DeltaPrinterView\DrawingSettings.cs" />
+    <Compile Include="DeltaPrinterView\AppearanceSettings.cs" />
     <Compile Include="DeltaPrinterView\Data\PrintBaseViewData.cs" />
     <Compile Include="DeltaPrinterView\PrinterParts\IRenderView.cs" />
     <Compile Include="MainForm.cs">
@@ -89,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

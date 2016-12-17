@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using _3DPrinter.Simulation.DeltaPrinterView.Data;
-using _3DPrinter.Simulation.Helper;
+using DeltaPrinter.Simulation.DeltaPrinterView.Data;
+using DeltaPrinter.Simulation.Helper;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
+namespace DeltaPrinter.Simulation.DeltaPrinterView.PrinterParts
 {
     public class PrintHeadView : IRenderView
     {
@@ -20,11 +20,11 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
 
 
 
-        private void DrawHeadPlate(DrawingSettings ws, Graphics g, PrintHeadViewData headData)
+        private void DrawHeadPlate(AppearanceSettings ws, Graphics g, PrintHeadViewData headData)
         {
             var headPlateCorners = headData.PlateCorners.Concat(new []{headData.PlateCorners.First()}).ToArray();
             g.FillPolygon(ws.PrintHeadPlateBrush,headPlateCorners);
-            g.DrawLines(ws.StrokePenSmall, headPlateCorners);
+            g.DrawLines(ws.StrokeSmall.Pen, headPlateCorners);
 
         }
 
@@ -36,7 +36,7 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
             {
                 var rect = x.CreateRectAround(2);
                 g.FillEllipse(connectorBrush, rect);
-                g.DrawEllipse(viewData.DrawSettings.StrokePenSmall, rect);
+                g.DrawEllipse(viewData.DrawSettings.StrokeSmall.Pen, rect);
             };
 
             var headData = viewData.PrintHead;
@@ -50,11 +50,11 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
 
         }
 
-        private void DrawHeater(DrawingSettings ws, PrintHeadViewData headData, Graphics g)
+        private void DrawHeater(AppearanceSettings ws, PrintHeadViewData headData, Graphics g)
         {
             var pointRec = headData.CurrentPosition.CreateRectAround(4);
             g.FillEllipse(ws.CoilCoolerBrush, pointRec.Resize(4));
-            g.DrawEllipse(ws.StrokePenSmall, pointRec.Resize(4));
+            g.DrawEllipse(ws.StrokeSmall.Pen, pointRec.Resize(4));
             g.FillEllipse(ws.CoilHeaterBrush, pointRec);
         }
     }

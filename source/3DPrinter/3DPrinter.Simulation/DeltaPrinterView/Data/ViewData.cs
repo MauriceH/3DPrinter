@@ -1,10 +1,10 @@
 using System.Drawing;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView.Data
+namespace DeltaPrinter.Simulation.DeltaPrinterView.Data
 {
     public class ViewData
     {
-        public DrawingSettings DrawSettings { get; set; }
+        public AppearanceSettings DrawSettings { get; set; }
         public Rectangle PrintArea { get; set; }
         public Point Midpoint { get; set; }
 

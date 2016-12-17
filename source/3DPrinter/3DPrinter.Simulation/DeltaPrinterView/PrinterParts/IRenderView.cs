@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using _3DPrinter.Simulation.DeltaPrinterView.Data;
+using DeltaPrinter.Simulation.DeltaPrinterView.Data;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView.PrinterParts
+namespace DeltaPrinter.Simulation.DeltaPrinterView.PrinterParts
 {
     public interface IRenderView
     {

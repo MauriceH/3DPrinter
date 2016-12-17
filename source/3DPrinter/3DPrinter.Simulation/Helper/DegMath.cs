@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _3DPrinter.Simulation.Helper
+namespace DeltaPrinter.Simulation.Helper
 {
     public static class DegMath
     {

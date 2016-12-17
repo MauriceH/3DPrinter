@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
-namespace _3DPrinter.Simulation.Helper
+namespace DeltaPrinter.Simulation.Helper
 {
     public class HexaPolygon
     {

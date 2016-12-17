@@ -1,7 +1,7 @@
 using System.Drawing;
-using _3DPrinter.Simulation.Helper;
+using DeltaPrinter.Simulation.Helper;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView.Data
+namespace DeltaPrinter.Simulation.DeltaPrinterView.Data
 {
     public class DeltaHeadConnector
     {

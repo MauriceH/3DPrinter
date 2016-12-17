@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using _3DPrinter.Simulation.DeltaPrinterView.DirectMovement;
+﻿using System.Windows.Forms;
+using DeltaPrinter.Simulation.DeltaPrinterView.DirectMovement;
 
-namespace _3DPrinter.Simulation
+namespace DeltaPrinter.Simulation
 {
     public partial class MainForm : Form
     {
@@ -20,7 +12,12 @@ namespace _3DPrinter.Simulation
 
         private void delterPrinterView_OnDirectMove(object sender, DirectMovementArgs e)
         {
+            delterPrinterView.SetHeadPosition(e.Point);
+        }
 
+        void test()
+        {
+            
         }
     }
 }

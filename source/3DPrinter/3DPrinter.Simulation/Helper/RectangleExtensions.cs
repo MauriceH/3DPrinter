@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
-using System.Runtime.CompilerServices;
 
-namespace _3DPrinter.Simulation.Helper
+namespace DeltaPrinter.Simulation.Helper
 {
     public static class RectangleExtensions
     {

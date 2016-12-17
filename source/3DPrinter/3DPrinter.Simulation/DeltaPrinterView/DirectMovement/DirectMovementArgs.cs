@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Drawing;
 
-namespace _3DPrinter.Simulation.DeltaPrinterView.DirectMovement
+namespace DeltaPrinter.Simulation.DeltaPrinterView.DirectMovement
 {
 
     public class DirectMovementArgs : EventArgs
@@ -8,10 +9,14 @@ namespace _3DPrinter.Simulation.DeltaPrinterView.DirectMovement
         public int X { get; private set; }
         public int Y { get; private set; }
 
+        public Point Point => new Point(X,Y);
+
         public DirectMovementArgs(int x, int y)
         {
             X = x;
             Y = y;
         }
+
+        
     }
 }
