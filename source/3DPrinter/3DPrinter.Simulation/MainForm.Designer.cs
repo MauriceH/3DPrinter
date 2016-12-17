@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.printArea1 = new _3DPrinter.Simulation.PrintArea();
+            this.delterPrinterView = new DeltaPrinterView.DeltaPrinterView();
             this.SuspendLayout();
             // 
-            // printArea1
+            // delterPrinterView
             // 
-            this.printArea1.BackColor = System.Drawing.Color.Gray;
-            this.printArea1.Location = new System.Drawing.Point(74, 42);
-            this.printArea1.MaximumSize = new System.Drawing.Size(400, 400);
-            this.printArea1.MinimumSize = new System.Drawing.Size(400, 400);
-            this.printArea1.Name = "printArea1";
-            this.printArea1.Size = new System.Drawing.Size(400, 400);
-            this.printArea1.TabIndex = 0;
+            this.delterPrinterView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.delterPrinterView.Location = new System.Drawing.Point(24, 33);
+            this.delterPrinterView.MaximumSize = new System.Drawing.Size(400, 400);
+            this.delterPrinterView.MinimumSize = new System.Drawing.Size(400, 400);
+            this.delterPrinterView.Name = "delterPrinterView";
+            this.delterPrinterView.Size = new System.Drawing.Size(400, 400);
+            this.delterPrinterView.TabIndex = 0;
+            this.delterPrinterView.OnDirectMove += new DeltaPrinterView.DeltaPrinterView.DirectMovementEventHandler(this.delterPrinterView_OnDirectMove);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 530);
-            this.Controls.Add(this.printArea1);
+            this.Controls.Add(this.delterPrinterView);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -55,7 +56,7 @@
 
         #endregion
 
-        private PrintArea printArea1;
+        private DeltaPrinterView.DeltaPrinterView delterPrinterView;
     }
 }
 

@@ -1,6 +1,6 @@
-﻿namespace _3DPrinter.Simulation
+﻿namespace _3DPrinter.Simulation.DeltaPrinterView
 {
-    partial class PrintArea
+    partial class DeltaPrinterView
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -34,12 +34,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DoubleBuffered = true;
-            this.MaximumSize = new System.Drawing.Size(350, 350);
-            this.MinimumSize = new System.Drawing.Size(350, 350);
-            this.Name = "PrintArea";
-            this.Size = new System.Drawing.Size(350, 350);
+            this.MaximumSize = new System.Drawing.Size(400, 400);
+            this.MinimumSize = new System.Drawing.Size(400, 400);
+            this.Name = "DeltaPrinterView";
+            this.Size = new System.Drawing.Size(400, 400);
             this.ResumeLayout(false);
 
         }

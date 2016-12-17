@@ -46,30 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRenderView.cs" />
+    <Compile Include="DeltaPrinterView\Data\DeltaHeadConnectorViewData.cs" />
+    <Compile Include="Helper\DegMath.cs" />
+    <Compile Include="Helper\HexaPolygon.cs" />
+    <Compile Include="Helper\PointExtensions.cs" />
+    <Compile Include="Helper\RectangleExtensions.cs" />
+    <Compile Include="Helper\Triangle.cs" />
+    <Compile Include="DeltaPrinterView\DrawingSettings.cs" />
+    <Compile Include="DeltaPrinterView\Data\PrintBaseViewData.cs" />
+    <Compile Include="DeltaPrinterView\PrinterParts\IRenderView.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintArea.cs">
+    <Compile Include="DeltaPrinterView\DeltaPrinterView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PrintArea.Designer.cs">
-      <DependentUpon>PrintArea.cs</DependentUpon>
+    <Compile Include="DeltaPrinterView\DeltaPrinterView.Designer.cs">
+      <DependentUpon>DeltaPrinterView.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrinterView.cs" />
-    <Compile Include="PrintHeadPosition.cs" />
-    <Compile Include="PrintHeadView.cs" />
+    <Compile Include="DeltaPrinterView\DirectMovement\DirectMovementArgs.cs" />
+    <Compile Include="DeltaPrinterView\PrinterParts\PrinterView.cs" />
+    <Compile Include="PrinterConfig.cs" />
+    <Compile Include="DeltaPrinterView\Data\PrintHeadViewData.cs" />
+    <Compile Include="DeltaPrinterView\PrinterParts\PrintHeadView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewData.cs" />
+    <Compile Include="DeltaPrinterView\Data\ViewData.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintArea.resx">
-      <DependentUpon>PrintArea.cs</DependentUpon>
+    <EmbeddedResource Include="DeltaPrinterView\DeltaPrinterView.resx">
+      <DependentUpon>DeltaPrinterView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -93,6 +103,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
